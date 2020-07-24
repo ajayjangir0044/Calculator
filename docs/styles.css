@@ -8,8 +8,13 @@ body{
    
 }
 input[type="text"]{width: 170px;
+    
+   
   
 
+}
+#ansTxt{
+    height: 24px;
 }
 
 #calci{
@@ -46,7 +51,7 @@ button{
     
     
 }
-button:focus{
+button:focus,input[type="text"]{
     outline: none;
 }
 button:active{
@@ -60,7 +65,7 @@ button:active{
 .social-media {
     text-align: center;
     position: relative;
-    top: 450px;
+    top: 420px;
     background-color:#E4E4E4;
 }
 
