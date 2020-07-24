@@ -88,8 +88,17 @@
 </body>
 <script type="text/javascript">
     function fn(val) {
-        var p = document.getElementById("fstTxt").value
-        if (temp == "" || p == "") {
+        var p = document.getElementById("fstTxt").value;
+
+        var t = document.getElementById("ansTxt").value;
+        if (p == "" && t == "") {
+            temp = "";
+
+            document.getElementById("ansTxt").style.fontSize = "0.6rem";
+            var a = document.getElementById("fstTxt").value += val;
+            var b = eval(a);
+            document.getElementById("ansTxt").value = b;
+        } else if (temp == "") {
             temp = "";
 
             document.getElementById("ansTxt").style.fontSize = "0.6rem";
