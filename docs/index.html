@@ -32,7 +32,7 @@
                     <td><button value="c" onclick="clr()">C</button></td>
                     <td><button value="%" onclick="fn('%')"> %</button></td>
                     <td><button onclick="backSpace()" class="imgback" style="height:16px"><img src="backspace.png"
-                                alt="Loading-error" style="width: 14px; position: relative; top: 1px;">
+                                alt="Loading-error" style="width: 14px; ">
                         </button></td>
                     <td> <button value="/" onclick="fn('/')" class="forColor">&#247</button></td>
                 </tr>
@@ -88,8 +88,11 @@
 </body>
 <script type="text/javascript">
     function fn(val) {
-        if (temp == "") {
+        var p = document.getElementById("fstTxt").value
+        if (temp == "" || p == "") {
+            temp = "";
 
+            document.getElementById("ansTxt").style.fontSize = "0.6rem";
             var a = document.getElementById("fstTxt").value += val;
             var b = eval(a);
             document.getElementById("ansTxt").value = b;
@@ -124,31 +127,20 @@
 
     function backSpace() {
         var a = document.getElementById("fstTxt").value;
+        var b = document.getElementById("ansTxt").value;
+
         if (a.length == 1 || a.length == "") {
             document.getElementById("fstTxt").value = "";
 
             document.getElementById("ansTxt").value = "";
 
-        } else if (temp == "") {
+        } else {
             var s = document.getElementById("fstTxt").value;
 
             var newVal = s.slice(0, s.length - 1);
             document.getElementById("fstTxt").value = newVal;
             var finalAns = eval(newVal)
             document.getElementById("ansTxt").value = finalAns;
-        } else {
-            temp = "";
-
-            document.getElementById("ansTxt").style.fontSize = "0.6rem";
-
-
-
-
-            document.getElementById("fstTxt").value = "";
-
-            document.getElementById("ansTxt").value = "";
-
-
         }
 
 
