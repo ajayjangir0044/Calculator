@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="icons8-calculator-48.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="container" style="background-color: white;">
+        <div>
+            <h1 style="text-align: center;  font-size: 0.8rem;">Calculator</h1>
+        </div>
+        <div id="result">
+            <input type="text" id="fstTxt" style="text-align: right; border: none; font-size: 0.8rem;"><br>
+            <input type="text" id="ansTxt" style="text-align: right; border: none; font-size: 0.6rem;">
+        </div>
+        <div id="calci">
+
+
+            <table>
+
+                <tr>
+                    <td><button value="c" onclick="clr()">C</button></td>
+                    <td><button value="%" onclick="fn('%')"> %</button></td>
+                    <td><button onclick="backSpace()"><img src="backspace.png" alt="Loading-error"
+                                style="width: 14px; position: relative; top: 1px;"> </button></td>
+                    <td> <button value="/" onclick="fn('/')" class="forColor">&#247</button></td>
+                </tr>
+                <tr>
+                    <td><button value="1" onclick="fn('1')">1</button></td>
+
+                    <td><button value="2" onclick="fn('2')">2</button></td>
+
+                    <td><button value="3" onclick="fn('3')">3</button></td>
+
+                    <td><button value="*" onclick="fn('*')" class="forColor">&#215</button></td>
+                </tr>
+                <tr>
+                    <td><button value="4" onclick="fn('4')">4</button></td>
+
+                    <td><button value="5" onclick="fn('5')">5</button></td>
+
+                    <td><button value="6" onclick="fn('6')">6</button></td>
+
+                    <td><button value="-" onclick="fn('-')" class="forColor">-</button></td>
+                </tr>
+                <tr>
+                    <td><button value="7" onclick="fn('7')">7</button></td>
+
+                    <td><button value="8" onclick="fn('8')">8</button></td>
+
+                    <td><button value="9" onclick="fn('9')">9</button></td>
+
+                    <td><button value="+" onclick="fn('+')" class="forColor">+</button></td>
+                </tr>
+                <tr>
+                    <td><button value="0" onclick="fn('0')">0</button></td>
+
+                    <td><button value="00" onclick="fn('00')">00</button></td>
+
+                    <td><button value="." id="dot" onclick="fn('.')"
+                            style="font-size: 20px; text-align: center !important;">.</button></td>
+
+                    <td><button value="=" onclick="calculate()" class="forColor">=</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <section class="social-media">
+        <div class="container-fluid">
+            <a href="https://www.facebook.com/ajay.jangir.942145/"> <i class="social-icon fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/Ajayjan28548037"> <i class="social-icon fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/ajayjangir0044/"> <i class="social-icon fab fa-instagram"></i></a>
+            <a href="mailto:ajayjangir0044@gmail.com"><i class="social-icon fas fa-envelope"></i></a>
+            <p>© Copyright 2020 Ajay Jangir</p>
+        </div>
+    </section>
+</body>
+<script type="text/javascript">
+    function fn(val) {
+        if (temp == "") {
+
+            var a = document.getElementById("fstTxt").value += val;
+            var b = eval(a);
+            document.getElementById("ansTxt").value = b;
+        } else {
+            var a = document.getElementById("fstTxt").value += temp;
+            temp = "";
+
+            document.getElementById("ansTxt").style.fontSize = "0.6rem";
+
+            a = document.getElementById("fstTxt").value += val;
+            var b = eval(a);
+            document.getElementById("ansTxt").value = b;
+
+
+
+        }
+
+
+
+
+    }
+
+    function clr() {
+        document.getElementById("fstTxt").value = "";
+
+        document.getElementById("ansTxt").value = "";
+    }
+    var temp = "";
+
+    function calculate() {
+        document.getElementById("fstTxt").value = "";
+        var cal = document.getElementById("ansTxt").value;
+
+        temp = cal;
+
+        document.getElementById("ansTxt").style.fontSize = "1rem";
+    }
+
+    function backSpace() {
+        var s = document.getElementById("fstTxt").value;
+
+        var newVal = s.slice(0, s.length - 1);
+        document.getElementById("fstTxt").value = newVal;
+        var finalAns = eval(newVal)
+        document.getElementById("ansTxt").value = finalAns;
+
+
+    }
+</script>
+
+</html>
