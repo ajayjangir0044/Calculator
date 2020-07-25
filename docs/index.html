@@ -8,6 +8,7 @@
     <title>Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="icons8-calculator-48.png">
 
@@ -82,45 +83,62 @@
             <a href="https://twitter.com/Ajayjan28548037"> <i class="social-icon fab fa-twitter"></i></a>
             <a href="https://www.instagram.com/ajayjangir0044/"> <i class="social-icon fab fa-instagram"></i></a>
             <a href="mailto:ajayjangir0044@gmail.com"><i class="social-icon fas fa-envelope"></i></a>
-            <p>© Copyright 2020 Ajay Jangir</p>
+            <p>© Copyright 2020 Ajay Jangir. All rights reserved</p>
         </div>
     </section>
 </body>
 <script type="text/javascript">
     function fn(val) {
-        var p = document.getElementById("fstTxt").value;
 
-        var t = document.getElementById("ansTxt").value;
-        if (p == "" && t == "") {
-            temp = "";
 
-            document.getElementById("ansTxt").style.fontSize = "0.6rem";
-            var a = document.getElementById("fstTxt").value += val;
-            var b = eval(a);
-            document.getElementById("ansTxt").value = b;
-        } else if (temp == "") {
-            temp = "";
-
-            document.getElementById("ansTxt").style.fontSize = "0.6rem";
-            var a = document.getElementById("fstTxt").value += val;
-            var b = eval(a);
-            document.getElementById("ansTxt").value = b;
+        var n = document.getElementById("fstTxt").value;
+        var lstno = n[n.length - 1];
+        if (lstno == "+" || lstno == "-" || lstno == "*" || lstno == "/") {
+            if (val == "+" || val == "-" || val == "*" || val == "/") {
+                var slic = n.slice(0, n.length - 1);
+                slic += val;
+                document.getElementById("fstTxt").value = slic;
+            } else {
+                var a = document.getElementById("fstTxt").value += val;
+                var b = eval(a);
+                document.getElementById("ansTxt").value = b;
+            }
         } else {
-            var a = document.getElementById("fstTxt").value += temp;
-            temp = "";
+            var p = document.getElementById("fstTxt").value;
 
-            document.getElementById("ansTxt").style.fontSize = "0.6rem";
+            var t = document.getElementById("ansTxt").value;
+            if (p == "" && t == "") {
+                temp = "";
 
-            a = document.getElementById("fstTxt").value += val;
-            var b = eval(a);
-            document.getElementById("ansTxt").value = b;
+                document.getElementById("ansTxt").style.fontSize = "0.6rem";
+                var a = document.getElementById("fstTxt").value += val;
+                var b = eval(a);
+                document.getElementById("ansTxt").value = b;
+            } else if (temp == "") {
+                temp = "";
+
+                document.getElementById("ansTxt").style.fontSize = "0.6rem";
+                var a = document.getElementById("fstTxt").value += val;
+                var b = eval(a);
+                document.getElementById("ansTxt").value = b;
+            } else {
+                var a = document.getElementById("fstTxt").value += temp;
+                temp = "";
+
+                document.getElementById("ansTxt").style.fontSize = "0.6rem";
+
+                a = document.getElementById("fstTxt").value += val;
+                var b = eval(a);
+                document.getElementById("ansTxt").value = b;
+
+
+
+            }
+
 
 
 
         }
-
-
-
 
     }
 
